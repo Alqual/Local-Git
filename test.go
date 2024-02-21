@@ -4,7 +4,7 @@ import "fmt"
 
 func calc(x, y int) int {
 	var z int
-	z = x + y
+	z = x + y*y
 	return z
 }
 
