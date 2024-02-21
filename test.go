@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+"github.com/Alqual/Local-Git")
+
 func calc(x, y int) int {
 	var z int
 	z = x + y*y
