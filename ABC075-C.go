@@ -20,6 +20,18 @@ func nextLine() []int {
 	return ret
 }
 
+func dfs(v,n int, visited []bool, tree map[Node]bool) {
+	visited[v] = true
+	for i := 0; i < n; i++ {
+		if tree[Node{v,i}] == false && visited[i] == true {
+			dfs(i,n,visited,tree)
+		}
+
+
+	}
+}
+
+
 type Node struct {
 	Bef  int
 	Next int
