@@ -12,7 +12,7 @@ const limit = 50
 
 var sc = bufio.NewScanner(os.Stdin)
 var tree map[Node]bool = map[Node]bool{}
-var a, b = make([]int, limit), make([]int, limit)
+var a, b = []int{}, []int{}
 var visited = make([]bool, limit)
 var W = make([]int, 2)
 
@@ -48,6 +48,7 @@ type Node struct {
 func main() {
 	W = nextLine()
 	var ans int = 0
+	fmt.Println(tree)
 
 	for i := 0; i < W[1]; i++ {
 		ab := nextLine()
@@ -58,8 +59,9 @@ func main() {
 		a = append(a, ab[0])
 		b = append(b, ab[1])
 	}
-	//fmt.Println(tree)
-
+	delete(tree, Node{0, 0})
+	fmt.Println(tree)
+	//fmt.Println(a, b)
 	for i := 0; i < W[1]; i++ {
 		tree[Node{a[i], b[i]}] = false
 		tree[Node{b[i], a[i]}] = false
@@ -82,8 +84,9 @@ func main() {
 		}
 		tree[Node{a[i], b[i]}] = true
 		tree[Node{b[i], a[i]}] = true
+		fmt.Println(tree, a[i], b[i])
 	}
 	//tree[Node{}] = nil
-	fmt.Println(tree)
+	//fmt.Println(tree)
 	fmt.Println(ans)
 }
