@@ -48,7 +48,7 @@ type Node struct {
 func main() {
 	W = nextLine()
 	var ans int = 0
-	fmt.Println(tree)
+	//fmt.Println(tree)
 
 	for i := 0; i < W[1]; i++ {
 		ab := nextLine()
@@ -60,7 +60,7 @@ func main() {
 		b = append(b, ab[1])
 	}
 	delete(tree, Node{0, 0})
-	fmt.Println(tree)
+	//fmt.Println(tree)
 	//fmt.Println(a, b)
 	for i := 0; i < W[1]; i++ {
 		tree[Node{a[i], b[i]}] = false
@@ -73,18 +73,18 @@ func main() {
 		var bridge bool = false
 		for k := 0; k < W[0]; k++ {
 			if visited[k] == false {
-				fmt.Println("a")
+				//fmt.Println("a")
 				bridge = true
 			}
-			fmt.Println(bridge, visited[k])
+			//fmt.Println("bridge, visited = ", bridge, visited[k], i, k)
 		}
 		if bridge == true {
-			fmt.Print("bridge: ")
+			//fmt.Println("bridge: ", a[i], b[i], tree)
 			ans++
 		}
 		tree[Node{a[i], b[i]}] = true
 		tree[Node{b[i], a[i]}] = true
-		fmt.Println(tree, a[i], b[i])
+		//fmt.Println(tree, a[i], b[i])
 	}
 	//tree[Node{}] = nil
 	//fmt.Println(tree)
