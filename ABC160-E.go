@@ -4,11 +4,13 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 )
 
 var sc = bufio.NewScanner(os.Stdin)
+var buffer = make([]byte, 10000)
 
 func NewInt() int {
 	sc.Scan()
@@ -26,54 +28,44 @@ func Newline() []int {
 	return ret
 }
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
 func main() {
 
 	sc.Buffer(buffer, 3000000)
 	W := Newline()
-	W[1]--
-	W[2]--
-	dist := make([][]int, W[0])
-	var res []int = make([]int, W[0])
-	for i := range dist {
-		dist[i] = make([]int, W[0])
-		for j := range dist[i] {
-			dist[i][j] = -1
-		}
-	}
-	for k := 0; k < W[0]; k++ {
-		var queue []int
-		queue = append(queue, k)
-		dist[k][k] = 0
-		for len(queue) > 0 {
-			v := queue[0]
-			queue = queue[1:]
-			var nvs []int
-			if v > 0 {
-				nvs = append(nvs, v-1)
-			}
-			if v < W[0]-1 {
-				nvs = append(nvs, v+1)
-			}
-			if v == W[1] {
-				nvs = append(nvs, W[2])
-			}
-			if v == W[2] {
-				nvs = append(nvs, W[1])
-			}
-			for _, nv := range nvs {
-				if dist[k][nv] == -1 {
-					dist[k][nv] = dist[k][v] + 1
-					queue = append(queue, nv)
-				}
-			}
-		}
-	}
+	P := Newline()
+	Q := Newline()
+	R := Newline()
+	sort.Sort(sort.Reverse(sort.IntSlice(P)))
+	sort.Sort(sort.Reverse(sort.IntSlice(Q)))
+	sort.Sort(sort.Reverse(sort.IntSlice(R)))
+	var cul, culA, culB, ans int
 	for i := 0; i < W[0]; i++ {
-		for j := i + 1; j < W[0]; j++ {
-			res[dist[i][j]]++
+		ans += P[i]
+	}
+	for i := 0; i < W[1]; i++ {
+		ans += Q[i]
+	}
+	for (W[4] > cul) && (W[0] > culA) && (W[1] > culB) {
+		mi := min(P[W[0]-1-culA], Q[W[1]-1-culB])
+		if mi < R[cul] {
+			ans += R[cul] - mi
+			cul++
+			if P[W[0]-1-culA] < Q[W[1]-1-culB] {
+				culA++
+			} else {
+				culB++
+			}
+		} else {
+			cul++
 		}
 	}
-	for i := 1; i < W[0]; i++ {
-		fmt.Println(res[i])
-	}
+	fmt.Println(ans)
+
 }
