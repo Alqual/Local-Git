@@ -1,5 +1,7 @@
 package main
 
+//All AC
+
 import (
 	"bufio"
 	"fmt"
@@ -21,27 +23,23 @@ func Newline() []int {
 	return ret
 }
 
-type key struct {
-	x int
-	y int
-}
-
 func main() {
 	sc.Buffer(buffer, 3000000)
 	W := Newline()
 	W[1]--
 	W[2]--
-	var dist map[key]int = map[key]int{}
-	//fmt.Println(dist)
-	for i := 0; i < W[0]; i++ {
-		for j := 0; j < W[0]; j++ {
-			dist[key{i, j}] = -1
+	dist := make([][]int, W[0])
+	var res []int = make([]int, W[0])
+	for i := range dist {
+		dist[i] = make([]int, W[0])
+		for j := range dist[i] {
+			dist[i][j] = -1
 		}
 	}
 	for k := 0; k < W[0]; k++ {
 		var queue []int
 		queue = append(queue, k)
-		dist[key{k, k}] = 0
+		dist[k][k] = 0
 		for len(queue) > 0 {
 			v := queue[0]
 			queue = queue[1:]
@@ -59,17 +57,16 @@ func main() {
 				nvs = append(nvs, W[1])
 			}
 			for _, nv := range nvs {
-				if dist[key{k, nv}] == -1 {
-					dist[key{k, nv}] = dist[key{k, v}] + 1
+				if dist[k][nv] == -1 {
+					dist[k][nv] = dist[k][v] + 1
 					queue = append(queue, nv)
 				}
 			}
 		}
 	}
-	var res []int = make([]int, W[0])
 	for i := 0; i < W[0]; i++ {
 		for j := i + 1; j < W[0]; j++ {
-			res[dist[key{i, j}]]++
+			res[dist[i][j]]++
 		}
 	}
 	for k := 1; k < W[0]; k++ {
