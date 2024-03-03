@@ -18,27 +18,35 @@ func Newline() []int {
 	for i, v := range arr {
 		ret[i], _ = strconv.Atoi(v)
 	}
+
 	return ret
+}
+
+func floor(x, y int) int {
+	if float64(x/y) > float64(int(x/y)) {
+		return x/y + 1
+	}
+	return x / y
 }
 
 func main() {
 	sc.Buffer(buffer, 3000000)
 	W := Newline()
 	A := Newline()
-	var res []intt
-	var ans int
-	for i := 0; i < W[1]; i++ {
-		if i == W[1]-1 {
-			res = append(res, W[0]+A[0]-A[i])
-		} else {
-			res = append(res, A[i+1]-A[i])
-		}
-		if i == 0 {
-			ans = res[i]
-		} else if ans < res[i] {
-			ans = res[i]
-		}
-		//fmt.Println(res)
+	var sum int
+	var maps []int
+	for i := 0; i < W[0]; i++ {
+		sum += A[i]
 	}
-	fmt.Println(W[0] - ans)
+
+	for i := 0; i < W[0]; i++ {
+		if float64(A[i]) >= float64(sum)/float64(4*W[1]) {
+			maps = append(maps, i)
+		}
+	}
+	if len(maps) >= W[1] {
+		fmt.Println("Yes")
+	} else {
+		fmt.Println("No")
+	}
 }
