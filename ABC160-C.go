@@ -25,7 +25,7 @@ func main() {
 	sc.Buffer(buffer, 3000000)
 	W := Newline()
 	A := Newline()
-	var res []intt
+	var res []int
 	var ans int
 	for i := 0; i < W[1]; i++ {
 		if i == W[1]-1 {
