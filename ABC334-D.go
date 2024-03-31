@@ -30,34 +30,45 @@ func NewInt() int {
 }
 
 func main() {
-	sc.Buffer(buffer, 300000)
+	sc.Buffer(buffer, 3000000)
 	W := Newline()
 	R := Newline()
 	Soli := make([]int, W[0])
+	Shika := make([]int, W[1])
+	Shika0 := make([]int, W[1])
+	ans := make(map[int]int, W[1])
 	sort.Ints(R)
 	Soli[0] = R[0]
-	var ans []int
 	for i := 1; i < W[0]; i++ {
 		Soli[i] += Soli[i-1] + R[i]
 	}
-	Soli2 := make([]int, Soli[W[0]-1])
-	c := 0
-	for i := 1; i <= Soli[W[0]-1]; i++ {
-		if Soli[c] <= i {
-			c++
-		}
-		Soli2[i-1] += c
-	}
-	fmt.Println(Soli, Soli2)
-	for i := 0; i < W[1]; i++ {
+	for j := 0; j < W[1]; j++ {
 		Q := NewInt()
-		if Q < Soli[W[0]-1] {
-			ans = append(ans, Soli2[Q-1])
+		Shika[j] = Q
+		Shika0[j] = Q
+	}
+	sort.Ints(Shika)
+	var i, j int = 0, 0
+	for i < W[0] && j < W[1] {
+		//fmt.Println(i, j, Soli[i], Shika[j])
+		if Shika[j] >= Soli[i] {
+			i++
+			if i == W[0] {
+				ans[Shika[j]] = W[0]
+				if j < W[1] {
+					for j < W[1] {
+						ans[Shika[j]] = W[0]
+						j++
+					}
+				}
+			}
 		} else {
-			ans = append(ans, W[0])
+			ans[Shika[j]] = i
+			j++
 		}
 	}
-	for _, a := range ans {
-		fmt.Println(a)
+	//fmt.Println(ans)
+	for _, v := range Shika0 {
+		fmt.Println(ans[v])
 	}
 }
