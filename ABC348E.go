@@ -46,18 +46,6 @@ type Graph map[int][]int
 var ans Graph
 
 func (g Graph) dfs(node int, visited map[int]bool, start, distance int, distances map[int]int, C []int) {
-	if _, ok := distances[node]; !ok {
-		distances[node] = distance
-	}
-
-	if visited[node] {
-		if ans[node] == nil {
-			ans[node] = 
-
-
-
-		return
-	}
 	visited[node] = true
 	for _, next := range g[node] {
 		if !visited[next] {

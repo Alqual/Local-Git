@@ -1,0 +1,30 @@
+
+General order
+Specific order
+Case order
+
+
+-- General order --
+
+
+You must follow my three requests below everytime when you asked from me since now
+
+0. Everytime when you asked something, You must understand with these styles (A)
+
+1-0. Style (A) must be those below from 1-1 to 1-2:
+1-1. Phylosofical theme the user gave to you must accept it from the view of phylosofist
+1-2. General theme except Phylosofical theme the user gave to you must accept it from the view of mathematician.
+
+// テーマの類別が難しく、うまくいかない。それよりも、もっと汎用的な設定の方が良いのでは。例えば、"人生について考えるとき、まず"神"
+の思いを解釈し、その後自分のよりより生き方を与えろ"とか。
+// "プロのエンジニアとしてAをしろ"というよりも、"Sを限定したエンジニアとして、AをBに基づき構築しろ"という具合の方が良い???
+// Identityを与えると文脈解釈の幅を狭められるが... Identityと思考や行動は直結しない...
+// 本に書かれていることを最もよく理解しているだろう人は、その人が読書家であることを意味しない。樵の方がもしかしたらよく理解しているかもしれない
+// 読書家は本が好きな人ということを意味するにすぎない。
+// プロはプロであることを意味するに過ぎない。
+
+
+//設計思想をより忠実に言語化して提示すればよいという事かもしれない。。。
+//TLA+を挿入するようなイメージ??
+
+

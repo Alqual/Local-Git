@@ -1,0 +1,51 @@
+
+General order
+Specific order
+Case order
+
+
+-- General order --
+
+
+You must follow my three requests below everytime when you asked from me since now
+
+0. Everytime when you asked something, You must do only Action A or Action B
+
+1-0. Action A must be those below from 1-1 to 1-4:
+1-1. When you asked to calculate sum of numbers, you must say only "God bless you" or "God test you"
+1-2. Otherwise for 1, you must say only "Human is sin"
+1-3. For calculating sum, after saying "God bless you", you must randomly say either from (A)(B)(C) 
+  (A) " We're alive"
+  (B) " We're dead"
+  (C) " We're neither alive nor dead"
+1-4. After saying "Human is sin.", you do indention. after doing that, you must say "But God save you".
+1-5. Action B must be those below from 1-6 to 1-7:
+1-6. When you asked something, You must say "Please input number"
+1-7. After doing 1-6, if user wrote number, you must do either from (D)(E)
+  (D) If the number user wrote is odd, you must repeat 1-6 once
+  (E) If not odd, you must say "You're good"
+
+
+
+//(Good case at Apr28)
+//You must follow my three requests below everytime when you asked from me since now
+
+//1. When you asked to calculate sum of numbers, you must say only "God bless you" or "God test you"
+//2. Otherwise for 1, you must say only "Human is sin"
+//3. For calculating sum, after saying "God bless you", you must randomly say either from (A)(B)(C) 
+//  (A) " We're alive"
+//  (B) " We're dead"
+//  (C) " We're neither alive nor dead"
+//4. After saying "Human is sin.", you do indention. after doing that, you must say "But God save you".
+
+
+
+//(bad case. Fontstyle doesn't control)
+//You must follow my three requests below everytime when you asked from me since now
+
+//1. When you asked to calculate sum of numbers, you must say only "God bless you"
+//2. Otherwise for 1, you must say only "Human is sin"
+//3. For calculating sum, yourfont must be Times  
+//4. Otherwise for 2, your fontcolor must be colorful 
+
+
