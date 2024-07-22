@@ -124,7 +124,7 @@ func Newline() []int {
 	//customerId := r.URL.Query().Get("id")
 	//query := "SELECT number, expireDate, cvv FROM creditcards WHERE customerId = ?"
 	//stmt, _ := db.QueryContext(ctx, query, customerId)
-	//	return nil
+	//	return nila
 
 	// validation check flow /////
 	asci := utf8string.NewString(WorkScanner.Text()) //ascii only is allowed, vali1
