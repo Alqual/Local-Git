@@ -38,9 +38,9 @@ func main() { //main関数が長すぎるので、関数を分割することを
 
 	// 入力用の行を修正
 	//var C map[key]bool = map[key]bool{} //Cだと何の変数かわからない
-	var Input_mass_filled_blk map[loc]bool = map[loc]bool{} //黒で塗りつぶされたマスの座標
-	var chk2 int
-	Count_33lattice_filled_blk := make([]int, 10) //3×3格子のうち、黒で塗りつぶされたマスのある格子の数
+	var Lattice_blackmass_in map[loc]bool = map[loc]bool{} //黒マスを含む3×3格子の座標
+	//var chk2 int //これも不要
+	Count_lattice_blackmass := make([]int, 10) //黒マスを各0-9個含む3×3格子の数
 	//ans := make([]int, 10) //cout_blkの方が良い??
 	//Count_33lattice_filled_blk すごく冗長な名称になってしまう。配列をもう一用意するなどした方が良い??
 	//33latticeの変数ぐるーぷ(class)などを作って管理した方が分かりやすい?? structure化？？
@@ -48,20 +48,21 @@ func main() { //main関数が長すぎるので、関数を分割することを
 	/////////////
 
 	// 入力の行を修正
-	WorkScanner.Buffer(Buffermem, 300000) //test
-	Input_Lattice_str := Newline()        //structure構造は[Row数,Col数,Task数]である
+	WorkScanner.Buffer(Buffermem, 300000) //test　これは何??
+	Input_board_str := Newline()          //幾つかのマス目からなるBoardの構造と入力回数を[Row数,Col数,Task数]で獲得
 	// addition
-	for tasknum := 0; tasknum < Input_Lattice_str[2]; tasknum++ {
-		Input_massloc_black := Newline()                                                //黒で塗りつぶされているマス位置を入力←このコメントは不要では??
-		for row := Input_massloc_black[0] - 1; row <= Input_massloc_black[0]+1; row++ { //1000*1000格子だと配列が準備できない??10**6行配列はメモリ消費が激しくて重すぎる
-			for col := Input_massloc_black[1] - 1; col <= Input_massloc_black[1]+1; col++ {
-				Input_mass_filled_blk[loc{row, col}] = true //ここで3×3格子マス上すべてをtrueとすると、下のvisitedの処理が不要になるし、誤解が少ない。
+	for tasknum := 0; tasknum < Input_board_str[2]; tasknum++ { //Task数だけ繰り返し入力処理を行う
+		Input_blackmass_loc := Newline() //Board上の黒マス位置を[Row,Col]で獲得
+		//Newlineではわかりにくくないか??
+		for row := Input_blackmass_loc[0] - 1; row <= Input_blackmass_loc[0]+1; row++ { //1000*1000格子だと配列が準備できない??10**6行配列はメモリ消費が激しくて重すぎる
+			for col := Input_blackmass_loc[1] - 1; col <= Input_blackmass_loc[1]+1; col++ {
+				Lattice_blackmass_in[loc{row, col}] = true //ここで3×3格子マス上すべてをtrueとすると、下のvisitedの処理が不要になるし、誤解が少ない。
 			}
 		}
 	}
 	/////////////
 
-	for keys := range Input_mass_filled_blk {
+	for locs := range Lattice_blackmass_in { //黒マスを含む3×3格子の中心座標について処理
 
 		//このアルゴリズムは初見の人にわかりやすいか???わかりやすくする必要がある??
 		//技術力の高い集団ならば、このアルゴリズムは問題ないかもしれませんが、初心者には理解しにくいかもしれない。
@@ -78,29 +79,30 @@ func main() { //main関数が長すぎるので、関数を分割することを
 		//		}
 		//依存関係が若干わかりにくい??
 
-		var cout, chk int //数え上げ用のダミー変数
-		for k := keys.x - 1; k <= keys.x+1; k++ {
-			for l := keys.y - 1; l <= keys.y+1; l++ {
-				if Input_mass_filled_blk[loc{k, l}] {
-					cout++
+		var Count_blackmass_eachlattice int //格子内黒マス計量用ダミー変数
+		//var chk int //不要な変数
+		for row := locs.x - 1; row <= locs.x+1; row++ {
+			for col := locs.y - 1; col <= locs.y+1; col++ {
+				if Lattice_blackmass_in[loc{row, col}] {
+					Count_blackmass_eachlattice++
 				}
-				if k >= 1 && k <= Input_Lattice_str[0] && l >= 1 && l <= Input_Lattice_str[1] {
-					chk++
-				}
+				//if row >= 1 && row <= Input_Lattice_str[0] && col >= 1 && col <= Input_Lattice_str[1] {
+				//		chk++ //これは不要では??
+				//	}
 			}
 		}
-		if chk == 9 {
-			Count_33lattice_filled_blk[cout]++
-			chk2++
+		if locs.x-1 >= 1 && locs.x+1 <= Input_board_str[0] && locs.y-1 >= 1 && locs.y+1 <= Input_board_str[1] { //これで良いのでは??
+			Count_lattice_blackmass[Count_blackmass_eachlattice]++
+			//		chk2++ //これも不要では??
 		}
-		chk = 0
-		cout = 0
+		//chk = 0
+		Count_blackmass_eachlattice = 0
 		//}
 		//}
 	}
-	Count_33lattice_filled_blk[0] += (Input_Lattice_str[0]-2)*(Input_Lattice_str[1]-2) - chk2
-	for i := 0; i < 10; i++ {
-		fmt.Println(Count_33lattice_filled_blk[i])
+	//Count_lattice_blackmass[0] += (Input_Lattice_str[0]-2)*(Input_Lattice_str[1]-2) - chk2 //これも不要
+	for countnum := 0; countnum < 10; countnum++ { //塗りつぶされたマスの数が0~9個あるような、3×3格子の数を昇順出力
+		fmt.Println(Count_lattice_blackmass[countnum])
 	}
 }
 
