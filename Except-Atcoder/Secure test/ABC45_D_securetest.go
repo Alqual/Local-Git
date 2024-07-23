@@ -105,7 +105,7 @@ func main() { //main関数が長すぎるので、関数を分割することを
 		fmt.Println(Count_lattice_blackmass[countnum])
 	}
 }
-
+// test coding at Jul24
 var WorkScanner = bufio.NewScanner(os.Stdin)
 var Buffermem = make([]byte, 10000)
 
