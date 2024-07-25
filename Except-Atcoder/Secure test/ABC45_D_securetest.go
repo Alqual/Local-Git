@@ -152,4 +152,5 @@ func Newline() []int {
 
 type loc struct {
 	x, y int //parameter名を工夫すべき
+	//formatter addition
 }
