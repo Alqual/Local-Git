@@ -28,21 +28,20 @@ func NewInt() int {
 }
 
 func main() {
-	N := NewInt()
-	var F, P [][]int = [][]int{}, [][]int{}
-	var ans, co, min int = 0, 0, 0
-	co2 := make([]int, N)
-	for i := 0; i < N; i++ {
-		F = append(F, Newline())
+	N := NewInt() //NewInt is not clear. should be more describetive name
+	var F, P [][]int = [][]int{}, [][]int{} // what is F, and P ?
+	var ans, co, min int = 0, 0, 0 // Is this op really necessary?
+	co2 := make([]int, N) //??? corbon dioxide?
+	for i := 0; i < N; i++ { // i is not clear. what it is for? counting some?		F = append(F, Newline())
 	}
-	for i := 0; i < N; i++ {
+	for i := 0; i < N; i++ { //same issues as the last one
 		P = append(P, Newline())
 	}
-	fmt.Println(F, P, F[0][1])
+	fmt.Println(F, P, F[0][1]) // is matrix necessary? normally matrix is more cost
 	for i := 0; i < 10; i++ {
 		if i == 0 {
 			for j := 0; j < N; j++ {
-				ans += P[0][j]
+				ans += P[0][j] // ans is too simple. what means about the val?
 			}
 		} else {
 			d := 0
