@@ -35,10 +35,10 @@ func main() {
 	N := Input_Int() //NewInt is not clear. should be more describetive name
 	//var F, P [][]int = [][]int{}, [][]int{} // what is F, and P ?
 	var Shop_run_time [][]int = [][]int{} // [shopid,timezone (timezone at weekday, odd:day, even:night)]
-	var Profit_shopcount [][]int= [][]int{} //[shopid, sink running zones]
+	var Profit_shops [][]int= [][]int{} //[shopid, sink running zones]
 	//Shortcut form (in this case, F and P are parallelly called) is difficult?
 	var ans, co, min int = 0, 0, 0 // Is this op really necessary?
-	//var max_Profit int = 0
+	var Max_profit int = 0
 
 	co2 := make([]int, N) //??? corbon dioxide?
 
@@ -48,26 +48,26 @@ func main() {
 	}
 	for shop_id := 1; shop_id <= N; shop_id++ { // i is not clear. what it is for? counting some?		F = append(F, Newline())
 		// same loop vals makes confusion which gives loops
-		Profit_run = append(Profit_shopcount, Input_list()) //  what is P ?
+		Profit_shops = append(Profit_shops, Input_list()) //  what is P ?
 	}
 
 
-	fmt.Println(Shop_run_time, Profit_shopcount, Shop_run_time[0][1]) // is matrix necessary? normally matrix is more cost
+	fmt.Println(Shop_run_time, Profit_shops, Shop_run_time[0][1]) // is matrix necessary? normally matrix is more cost
 	for timezone := 0; timezone < 10; timezone++ {
 		if timezone == 0 {
 			for j := 0; j < N; j++ {
-				ans += Profit_shopcount[0][j] // ans is too simple. what means about the val?
+				Max_profit += Profit_shops[0][j] // ans is too simple. what means about the val?
 			}
 		} else {
 			d := 0
 			for j := 0; j < N; j++ { // other loop, using "j" is no so much bad, but even though a little not clear
 		
 				if Shop_run_time[j][timezone] == 1 {
-					d += Profit_shopcount[j][timezone]
+					d += Profit_shops[j][timezone]
 				}
 			}
 			if d > 0 && d> {// is this necessary?
-				ans += d
+				Max_profit += d
 				co++
 			} else {
 				if min == 0 {
@@ -79,9 +79,9 @@ func main() {
 				}
 			}
 			if co == 0 {
-				ans += min
+				Max_profit += min
 			}
 		}
 	}
-	fmt.Println(ans)
+	fmt.Println(Max_profit)
 }
