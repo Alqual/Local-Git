@@ -59,17 +59,16 @@ func main() {
 				}
 			}
 	}
-
-//Arrange Max_profit_array by disorder
-for timezone := 0; timezone < Maxtimezone; timezone++ {
-	if timezone == 0 && Max_profit_array[timezone] <0{
-		Max_profit = Max_profit_array[0]
-		break
+	//Arrange Max_profit_array by disorder
+	for timezone := 0; timezone < Maxtimezone; timezone++ {
+		if timezone == 0 && Max_profit_array[timezone] <0{
+			Max_profit = Max_profit_array[0]
+			break
+		}
+		if Max_profit_array[timezone]=<0{
+			break
+		}
+		Max_profit+=Max_profit_array[timezone]
 	}
-	if Max_profit_array[timezone]=<0{
-		break
-	}
-	Max_profit+=Max_profit_array[timezone]
-}
 	fmt.Println(Max_profit)
 }
