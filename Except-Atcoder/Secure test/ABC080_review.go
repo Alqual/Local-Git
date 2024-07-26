@@ -13,7 +13,7 @@ var Buf_io = bufio.NewScanner(os.Stdin) // what means this operation?
 const Buf_init_size = 10000
 const Buf_max_size = 300000
 var Buf_Init_array = make([]byte, Buf_init_size)
-
+//
 func Input_list() []int { // function vals are OK for this simple names?
 	Buf_io.Scan()
 	Tmp_split_array := strings.Split(Buf_io.Text(), " ") // arr is not good ?
