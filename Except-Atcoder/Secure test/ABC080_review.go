@@ -8,10 +8,10 @@ import (
 	"strings"
 )
 
-var sc = bufio.NewScanner(os.Stdin)
+var sc = bufio.NewScanner(os.Stdin) // what means this operation?
 var buffer = make([]byte, 10000)
 
-func Newline() []int {
+func Newline() []int { // function vals are OK for this simple names?
 	sc.Scan()
 	arr := strings.Split(sc.Text(), " ")
 	ret := make([]int, len(arr))
@@ -35,6 +35,7 @@ func main() {
 	for i := 0; i < N; i++ { // i is not clear. what it is for? counting some?		F = append(F, Newline())
 	}
 	for i := 0; i < N; i++ { //same issues as the last one
+		// same loop vals makes confusion which gives loops
 		P = append(P, Newline())
 	}
 	fmt.Println(F, P, F[0][1]) // is matrix necessary? normally matrix is more cost
@@ -50,7 +51,7 @@ func main() {
 					d += P[j][i]
 				}
 			}
-			if d > 0 && d> {
+			if d > 0 && d> {// is this necessary?
 				ans += d
 				co++
 			} else {
