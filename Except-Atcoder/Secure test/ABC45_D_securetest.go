@@ -48,7 +48,7 @@ func main() { //main関数が長すぎるので、関数を分割することを
 	/////////////
 
 	// 入力の行を修正
-	WorkScanner.Buffer(Buffermem, 300000) //test　これは何??
+	WorkScanner.Buffer(Buffer_size, 300000) //test　これは何??
 	Input_board_str := Newline()          //幾つかのマス目からなるBoardの構造と入力回数を[Row数,Col数,Task数]で獲得
 	// addition
 	for tasknum := 0; tasknum < Input_board_str[2]; tasknum++ { //Task数だけ繰り返し入力処理を行う
@@ -107,7 +107,7 @@ func main() { //main関数が長すぎるので、関数を分割することを
 }
 // test coding at Jul24
 var WorkScanner = bufio.NewScanner(os.Stdin)
-var Buffermem = make([]byte, 10000)
+var Buffer_size = make([]byte, 10000)
 
 func Newline() []int {
 	WorkScanner.Scan() // validationが必要, white listingは除外 (標準入力で,このプログラムを実行できた場合なので)
