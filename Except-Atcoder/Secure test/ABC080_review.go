@@ -34,10 +34,12 @@ func main() {
 	Buf_io.buffer(Buf_init_array, Buf_max_size)
 	N := Input_Int() //NewInt is not clear. should be more describetive name
 	//var F, P [][]int = [][]int{}, [][]int{} // what is F, and P ?
-	var Shop_run_time [][]int = [][]int{}
-	var Profit_run [][]int= [][]int{}
+	var Shop_run_time [][]int = [][]int{} // [shopid,timezone (timezone at weekday, odd:day, even:night)]
+	var Profit_shopcount [][]int= [][]int{} //[shopid, sink running zones]
 	//Shortcut form (in this case, F and P are parallelly called) is difficult?
 	var ans, co, min int = 0, 0, 0 // Is this op really necessary?
+	//var max_Profit int = 0
+
 	co2 := make([]int, N) //??? corbon dioxide?
 
 
@@ -46,22 +48,22 @@ func main() {
 	}
 	for shop_id := 1; shop_id <= N; shop_id++ { // i is not clear. what it is for? counting some?		F = append(F, Newline())
 		// same loop vals makes confusion which gives loops
-		Profit_run = append(Profit_run, Input_list()) //  what is P ?
+		Profit_run = append(Profit_shopcount, Input_list()) //  what is P ?
 	}
 
 
-	fmt.Println(Shop_run_time, Profit_run, Shop_run_time[0][1]) // is matrix necessary? normally matrix is more cost
+	fmt.Println(Shop_run_time, Profit_shopcount, Shop_run_time[0][1]) // is matrix necessary? normally matrix is more cost
 	for timezone := 0; timezone < 10; timezone++ {
 		if timezone == 0 {
 			for j := 0; j < N; j++ {
-				ans += Profit_run[0][j] // ans is too simple. what means about the val?
+				ans += Profit_shopcount[0][j] // ans is too simple. what means about the val?
 			}
 		} else {
 			d := 0
 			for j := 0; j < N; j++ { // other loop, using "j" is no so much bad, but even though a little not clear
 		
 				if Shop_run_time[j][timezone] == 1 {
-					d += Profit_run[j][timezone]
+					d += Profit_shopcount[j][timezone]
 				}
 			}
 			if d > 0 && d> {// is this necessary?
