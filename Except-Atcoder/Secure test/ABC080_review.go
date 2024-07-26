@@ -10,8 +10,8 @@ import (
 
 var Buf_io = bufio.NewScanner(os.Stdin) // what means this operation?
 // more describtive name is better, Scan_start is a little simple
-cons Buf_init_size = 10000
-cons Buf_max_size = 300000
+const Buf_init_size = 10000
+const Buf_max_size = 300000
 var Buf_Init_array = make([]byte, Buf_init_size)
 
 func Input_list() []int { // function vals are OK for this simple names?
