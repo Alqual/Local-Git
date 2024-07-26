@@ -15,6 +15,7 @@ var Buf_io = bufio.NewScanner(os.Stdin) // what means this operation?
 // more describtive name is better, Scan_start is a little simple
 const Buf_init_size = 10000
 const Buf_max_size = 300000
+const Maxtimezone = 10
 var Buf_Init_array = make([]byte, Buf_init_size)
 //
 func Input_list() []int { // function vals are OK for this simple names?
@@ -35,7 +36,7 @@ func Input_Int() int {
 
 func main() {
 	Buf_io.buffer(Buf_init_array, Buf_max_size)
-	N := Input_Int() //NewInt is not clear. should be more describetive name
+	Shopcounts := Input_Int() //NewInt is not clear. should be more describetive name
 	//var F, P [][]int = [][]int{}, [][]int{} // what is F, and P ?
 	var Shop_run_time [][]int = [][]int{} // [shopid,timezone (timezone at weekday, odd:day, even:night)]
 	var Profit_shops [][]int= [][]int{} //[shopid, sink running zones]
@@ -44,21 +45,21 @@ func main() {
 	var Max_profit_array []int = []int{}
 	var Max_profit int = 0
 
-	co2 := make([]int, N) //??? corbon dioxide?
+	co2 := make([]int, Shopcounts) //??? corbon dioxide?
 
 
-	for shop_id := 1; shop_id <= N ; shop_id++{
+	for shop_id := 1; shop_id <= Shopcounts ; shop_id++{
 		Shop_run_time = append(Shop_run_time, Input_list())
 	}
-	for shop_id := 1; shop_id <= N; shop_id++ { // i is not clear. what it is for? counting some?		F = append(F, Newline())
+	for shop_id := 1; shop_id <= Shopcounts; shop_id++ { // i is not clear. what it is for? counting some?		F = append(F, Newline())
 		// same loop vals makes confusion which gives loops
 		Profit_shops = append(Profit_shops, Input_list()) //  what is P ?
 	}
 
 
 	fmt.Println(Shop_run_time, Profit_shops, Shop_run_time[0][1]) // is matrix necessary? normally matrix is more cost
-	for timezone := 0; timezone < 10; timezone++ {
-			for shops := 0; shops < N; shops++ { // other loop, using "j" is no so much bad, but even though a little not clear
+	for timezone := 0; timezone < Maxtimezone; timezone++ {
+			for shops := 0; shops < Shopcounts; shops++ { // other loop, using "j" is no so much bad, but even though a little not clear
 		
 				if Shop_run_time[shops][timezone] == 1 {
 					Max_profit_array[timezone] += Profit_shops[shops][timezone]
@@ -67,7 +68,7 @@ func main() {
 	}
 
 //Arrange Max_profit_array by disorder
-for timezone := 0; timezone < 10; timezone++ {
+for timezone := 0; timezone < Maxtimezone; timezone++ {
 	if timezone == 0 && Max_profit_array[timezone] <0{
 		Max_profit = Max_profit_array[0]
 		break
