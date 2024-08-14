@@ -14,6 +14,7 @@ func main() {
 			c++
 		}
 	}
-	fmt.Println(X)
+	fmt.Println(X)//xoxqxo
+
 
 }
