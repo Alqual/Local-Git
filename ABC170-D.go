@@ -38,7 +38,7 @@ func lcm(x, y int) int {
 	return x * y / gcd(x, y)
 }
 
-func main() {
+func main() { //koment
 	sc.Buffer(buffer, 3000000)
 	N := NewInt()
 	A := Newline()

@@ -33,7 +33,7 @@ func Input_list() []int { // function vals are OK for this simple names?
 
 func Input_Int() int {
 	Buf_io.Scan()
-	Ret_num, _ := strconv.Atoi(sc.Text())
+	Ret_num, _ := strconv.Atoi(Buf_io.Text())
 	return Ret_num
 }
 
@@ -54,7 +54,7 @@ func main() { //CICDを考えるなら、mainとして長すぎでは??分離す
 	//main関数の役割はそもそも何?? -> entry関数であり, entry関数として
 	//最低限必要な機能のみ備えているべき
 	//↓↓↓ entry関数というよりengineという印象
-	Buf_io.buffer(Buf_init_array, Buf_max_size)
+	Buf_io.Buffer(Buf_Init_array, Buf_max_size)
 	Shopcounts := Input_Int() 
 	var Shop_run_time [][]int = [][]int{} // [shopid,timezone (timezone at weekday, odd:day, even:night)]
 	var Profit_shops [][]int= [][]int{} //[shopid, sink running zones]
