@@ -1,0 +1,36 @@
+{
+    "Prompt sample list": 
+    {
+        "Chap1-ramen":
+        {
+            "Prompt":"ラーメンを作れ","Taste":"豚骨",
+            "Volume":"大盛","Thickness":"太麺","Boiling":"バリカタ",
+            "小麦産地":"アメリカ"
+        },
+        "Chap2-udon":
+        {
+            "Prompt":"うどんを作れ","Taste":"カツオだし",
+            "Volume":"普通","Thickness":"中太","Boiling":"ふつう",
+            "小麦産地":"オーストラリア"
+        },
+        "Chap3-iteration":
+        {
+            "Prompt":"指定した計算を繰り返してください","繰り返し回数":"100",
+            "変数":[{"var1":1},{"var2":2},{"var3":3}],
+            "計算内容":"step1からstep3を番号順に実行",
+            "step list":[{"step1":"var1=var1+1"},{"step2":"var2=var2+var1"},{"step3":"var3=var1+var2"}]
+        }
+    },
+    "Option":
+    {
+        "Attached file":
+        ["xxx1.docx","xxx2.xlsx","xxx3.db"],
+        "Output format": "Markdown",
+        "Font format": "Meiryo"
+    },
+    "Note":"適当に作ったので多分動かない",
+    "Note2":"iterationはこの書き方を使えば表現できそう"
+}
+
+
+

@@ -1,0 +1,52 @@
+
+Tensor=
+{
+    "database1":
+    {
+        "table1_1":
+        {
+            "datainfo1_1":
+            {
+
+
+            },
+            "metadatainfo1_1":
+            {
+
+
+            }
+
+        }
+
+},
+"database2":
+{
+    "table2_1":
+    {
+        "datainfo2_1":
+
+        {
+
+
+        },
+        "metadatainfo2_1":
+        {
+
+        }
+    }
+
+},
+"database3":
+{
+    "table3_1":
+    {
+        "tensor3":
+
+        {
+
+
+        }
+
+    }
+}
+}
