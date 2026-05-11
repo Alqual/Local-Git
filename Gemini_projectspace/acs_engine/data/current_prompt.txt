@@ -1,0 +1,12 @@
+
+You are an autonomous mathematical verification agent.
+Goal: Polynomial f(x) = x^3 + 3px^2 + 3mx. Prove that f''(-p) = 0 for any real numbers p and m.
+
+Instructions:
+1. Write a Python script that uses SymPy to calculate the second derivative.
+2. Use Z3 (z3-solver) to formally prove the result is 0 for all p, m.
+3. Print "VERIFICATION_SUCCESSFUL" only if the proof holds.
+4. Provide the full code in a single ```python ... ``` block.
+
+Current Strategy: Initial attempt using SymPy to differentiate and Z3 to prove the identity.
+Last Feedback: Error: No python code block found in your response. Please provide code in ```python ... ```.

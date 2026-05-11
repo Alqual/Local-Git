@@ -1,0 +1,1 @@
+{"id": "q1", "question": "What is Self-RAG?", "answers": ["Self-RAG is a framework for retrieval-augmented generation.", "A machine learning pipeline."], "ctxs": [{"title": "Self-RAG", "text": "Self-RAG is a new framework to train an arbitrary LM to learn to retrieve, generate, and critique."}]}

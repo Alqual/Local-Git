@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mermaid Renderer</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    </script>
+    <style>
+        body { background-color: #1e1e1e; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .mermaid { background: #2d2d2d; padding: 20px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="mermaid">
+flowchart TD
+    %% Source Reference: 20260405_self_rag_io_architecture_diagram.md
+    subgraph UI [User Interface]
+        User_Input([User Query: q])
+        System_Response([Final Output])
+    end
+
+    subgraph Memory_Layer [2-Layer Lossless Memory]
+        direction TB
+        %% Source Reference: 20260409_hybrid_architecture_experiment_plan.md
+        Layer1[Layer 1: Classical KV Cache<br/>Retention: Exact / Syntax Lossless<br/>Window: N tokens]
+        
+        Layer2[Layer 2: Quantum State Vector Space<br/>Retention: Stochastic / Semantic Lossless<br/>Model: Langevin-Lindblad Dynamics]
+
+        Layer1 -- "Overflow Transfer (Embedding)" --> Layer2
+    end
+
+    subgraph Physics_Engine [Cognitive Physics Engine]
+        direction LR
+        %% Source Reference: 20260413_conceptual_mechanism_memory_association.md
+        Langevin[[Langevin: Smooth Forgetting]]
+        Levy[[Lévy: Context Reset]]
+        Kuramoto[[Kuramoto: Semantic Sync]]
+        Hopfield[[Hopfield: Associative Pull]]
+
+        Langevin <--> Layer2
+        Levy --> Layer2
+        Kuramoto <--> Layer2
+        Hopfield <--> Layer2
+    end
+
+    subgraph Router_Pipeline [Self-RAG Routing & Critique]
+        %% Source Reference: 20260404_self_rag_architecture.md
+        Critique{Critique Token<br/>Router}
+        Collapse[Collapse / Retrieval<br/>from State Vector]
+        LLM[[LLM Internal Engine]]
+    end
+
+    %% Data Flow
+    User_Input --> LLM
+    LLM --> Critique
+    
+    Critique -- "[Retrieval] Needed" --> Collapse
+    Collapse -- "Semantic Retrieval" --> Layer2
+    Layer2 -- "Retrieved Context" --> LLM
+
+    Critique -- "Success / EOS" --> System_Response
+    
+    %% Memory Sync
+    LLM -- "Token Generation" --> Layer1
+    </div>
+</body>
+</html>

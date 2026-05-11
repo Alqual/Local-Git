@@ -1,0 +1,6 @@
+id	text	title
+1	Self-RAG is a new framework to train an arbitrary LM to learn to retrieve, generate, and critique to enhance the factuality and quality of generations.	Self-RAG
+2	Llama 2 is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters.	Llama 2
+3	Contriever is an information retrieval model based on continuous dense embeddings, trained with contrastive learning.	Contriever
+4	FlashAttention is a fast and memory-efficient algorithm for exact attention that speeds up Transformers and reduces memory footprint.	FlashAttention
+5	Faiss is a library for efficient similarity search and clustering of dense vectors. It contains algorithms that search in sets of vectors of any size.	FAISS

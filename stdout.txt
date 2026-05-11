@@ -1,0 +1,6 @@
+ErrorTest.lean:1:18: error: Type mismatch
+  "string"
+has type
+  String
+but is expected to have type
+  Nat

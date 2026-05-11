@@ -1,0 +1,45 @@
+=== Initializing Quantum Controller Prototype ===
+[*] Loading Quantum Components (Embedding)...
+[*] Loading Engine: TinyLlama/TinyLlama-1.1B-Chat-v1.0 on cuda...
+[*] Engine securely loaded. Ready for stateless execution.
+[*] Quantizing Massive Knowledge Space (105 entries)...
+
+================ PHASE 5: MASSIVE CONTEXT TEST ================
+【実験背景】
+古典的ステートマシンでは、100個以上の無関係なやり取り（ノイズ）があれば
+LLMへ渡すテキストバッファが数万トークンに膨れ上がり、Attention崩壊を起こします。
+今回は100以上のダミーノイズプールを持つ空間で、状態ベクトルが破綻せずに
+固定サイズの超短文プロンプトとして意味をCollapse（抽出）できるか検証します。
+
+>>> Turn 1: 遠い過去のノイズに埋もれた情報を質問
+
+--- [Quantum Controller] User Event: 'Tackとはどのようなエンジニアですか？' ---
+
+[Quantum Controller] --------- Measurement ----------
+SLMに送信される確定プロンプト（長さは一切増大しない）:
+Collapsed Knowledge State:
+- TackはPythonとAIアーキテクチャに熱心な優秀なエンジニアです。
+- Tackの大好物は焼肉です。
+
+User Input: Tackとはどのようなエンジニアですか？
+Assistant:
+---------------------------------------------------
+
+[Engine Output]: The User Input was "Tackとはどのようなエンジニアですか?" The answer is "TackはPythonとAIアーキテクチャに熱心な優秀
+
+>>> Turn 2: あいまいな代名詞での抽出テスト
+
+--- [Quantum Controller] User Event: '彼の大好物はなんでしたっけ？' ---
+
+[Quantum Controller] --------- Measurement ----------
+SLMに送信される確定プロンプト（長さは一切増大しない）:
+Collapsed Knowledge State:
+- Tackの大好物は焼肉です。
+- TackはPythonとAIアーキテクチャに熱心な優秀なエンジニアです。
+
+User Input: 彼の大好物はなんでしたっけ？
+Assistant:
+---------------------------------------------------
+
+[Engine Output]: User Input: 彼の大好物は焼肉です。
+Assistant: 焼肉はPythonとAIアーキテクチャに熱心なエ

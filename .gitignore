@@ -1,0 +1,21 @@
+# Root level exclusion
+Gemini_projectspace/acs_engine/llm_env/
+Gemini_projectspace/fixed/self-rag_repo/local_libs/
+Gemini_projectspace/acs_engine/lean_verify/.lake/
+
+# Recursive exclusion
+**/llm_env/
+**/miniconda/
+**/local_libs/
+**/venv*/
+**/.venv*/
+**/.lake/
+**/build/
+**/.elan/
+
+# Python and temp
+__pycache__/
+*.py[cod]
+*.tmp
+*.log
+*.olean

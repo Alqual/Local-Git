@@ -1,0 +1,30 @@
+{
+  "project_name": "{{PROJECT_NAME}}",
+  "current_phase": "Phase 1 (Initialization)",
+  "active_constraints": {
+    "protocol": "Strict TRL Gate Check",
+    "focus": "Initial setup and repository alignment",
+    "memory_policy": "L2 and L3 must be updated before session closure"
+  },
+  "layers": {
+    "l1_working": {
+      "active_session": "None",
+      "state_file": "RESEARCH_STATE.md"
+    },
+    "l2_episodic": {
+      "index": [],
+      "story_file": "l2_episodic_dock/PROJECT_STORY.md"
+    },
+    "l3_semantic": {
+      "knowledge_items": [],
+      "spec_files": [
+        "meta_management/l3_semantic/MEMORY_ARCHITECTURE.md",
+        "meta_management/l3_semantic/PROTOTYPING_POLICY.md",
+        "meta_management/l3_semantic/FAILURE_MODES.md",
+        "meta_management/l3_semantic/AI_USE_POLICY.md",
+        "meta_management/l3_semantic/META_MEMORY_POLICY.md"
+      ]
+    }
+  },
+  "last_updated": "{{TIMESTAMP}}"
+}

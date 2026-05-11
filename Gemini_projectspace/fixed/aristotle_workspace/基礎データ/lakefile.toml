@@ -1,0 +1,14 @@
+name = "aristotle_test"
+version = "0.1.0"
+defaultTargets = ["aristotle_test"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+
+[[lean_lib]]
+name = "AristotleTest"
+
+[[lean_exe]]
+name = "aristotle_test"
+root = "Main"

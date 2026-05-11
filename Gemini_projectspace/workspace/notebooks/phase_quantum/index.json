@@ -1,0 +1,23 @@
+[
+  {
+    "version": 1,
+    "phase": 11,
+    "title": "RoPE干渉行列による時間符号化（位相回転）モデル",
+    "timestamp": "20260408_224732",
+    "filename": "phase11_v001_20260408_224732.md"
+  },
+  {
+    "version": 2,
+    "phase": 12,
+    "title": "楕円回転モデル（Elliptical Rotation）",
+    "timestamp": "20260408_230310",
+    "filename": "phase12_v002_20260408_230310.md"
+  },
+  {
+    "version": 3,
+    "phase": 13,
+    "title": "時間性付きRoPE KV型アーキテクチャ実験",
+    "timestamp": "20260408_231336",
+    "filename": "phase13_v003_20260408_231336.md"
+  }
+]

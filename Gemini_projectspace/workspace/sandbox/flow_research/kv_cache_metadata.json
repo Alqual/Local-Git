@@ -1,0 +1,36 @@
+{
+  "model_info": {
+    "name": "mock-transformer-v1",
+    "layers": 2,
+    "heads": 4,
+    "dim_per_head": 64
+  },
+  "tokens": [
+    {
+      "id": 0,
+      "text": "今日",
+      "position": 0
+    },
+    {
+      "id": 1,
+      "text": "の",
+      "position": 1
+    },
+    {
+      "id": 2,
+      "text": "朝食",
+      "position": 2
+    },
+    {
+      "id": 3,
+      "text": "は",
+      "position": 3
+    },
+    {
+      "id": 4,
+      "text": "目玉焼き",
+      "position": 4
+    }
+  ],
+  "storage_format": "float32"
+}

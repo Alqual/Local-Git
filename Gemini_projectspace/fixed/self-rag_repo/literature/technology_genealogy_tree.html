@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI記憶・コンテキスト技術の系譜ツリー</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    margin: 0;
+    padding: 20px;
+  }
+  h1 { color: #58a6ff; text-align: center; font-size: 1.6em; margin-bottom: 4px; }
+  h2 { color: #79c0ff; font-size: 1.1em; margin-top: 36px; border-left: 4px solid #388bfd; padding-left: 10px; }
+  .subtitle { text-align: center; color: #8b949e; font-size: 0.9em; margin-bottom: 30px; }
+  .diagram-box {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0 30px 0;
+    overflow-x: auto;
+  }
+  .mermaid { min-width: 600px; }
+  table { border-collapse: collapse; width: 100%; margin-top: 16px; }
+  th { background: #21262d; padding: 10px; text-align: left; color: #79c0ff; border: 1px solid #30363d; }
+  td { padding: 8px 10px; border: 1px solid #30363d; font-size: 0.88em; }
+  tr:nth-child(even) { background: #161b22; }
+  .star { color: #f0883e; }
+  .our-research { color: #56d364; font-weight: bold; }
+  footer { text-align: center; color: #484f58; margin-top: 40px; font-size: 0.8em; }
+</style>
+</head>
+<body>
+<h1>🧠 AI記憶・コンテキスト管理技術の系譜ツリー</h1>
+<p class="subtitle">基礎理論から現代AIエージェントへ、そして本研究へ ── 2026-04-12</p>
+
+<h2>図1：基礎理論層 → Transformerの台頭（〜2019）</h2>
+<div class="diagram-box">
+<pre class="mermaid">
+flowchart TD
+    HEBB["Hebbの学習則\n1949"]
+    HOPFIELD["ホップフィールドネット\n1982"]
+    HRR["HRR ベクトル象徴記憶\n1995"]
+    LSTM["LSTM ゲート再帰学習\n1997"]
+    LINDBLAD["Lindbladマスター方程式\n1976"]
+    SGLD["SGLD 確率的Langevin\n2011"]
+    NTM["Neural Turing Machine\n2014"]
+    DNC["DNC 時間順序付き外部記憶\n2016"]
+    ATTN["⚡ Attention is All You Need\n2017"]
+    TXLFORMER["Transformer-XL\nセグメント間KV再利用\n2019"]
+    COMPRESS["Compressive Transformer\n圧縮メモリ保持\n2019"]
+
+    HEBB --> LSTM
+    HOPFIELD --> NTM
+    HRR --> NTM
+    LSTM --> ATTN
+    LINDBLAD --> SGLD
+    NTM --> DNC
+    ATTN --> TXLFORMER
+    TXLFORMER --> COMPRESS
+
+    style ATTN fill:#1f4f2a,stroke:#56d364
+    style HEBB fill:#2d1f00,stroke:#f0883e
+    style LINDBLAD fill:#2d1f00,stroke:#f0883e
+</pre>
+</div>
+
+<h2>図2：長文・記憶への本格挑戦（2020〜2022）</h2>
+<div class="diagram-box">
+<pre class="mermaid">
+flowchart TD
+    COMPRESS["Compressive Transformer\n2019"]
+    HIPPO["HiPPO 最適多項式射影記憶\n2020"]
+    LONGFORMER["Longformer / BigBird\nスパース注意\n2020"]
+    MODERN_HOP["Modern Hopfield Networks\nAttention=連想記憶\n2021 ICLR"]
+    SCORE_SDE["Score-Based SDE\nLangevin+スコア統一\n2021 ICLR Oral"]
+    S4["⚡ S4 構造化状態空間モデル\n2022 ICLR Outstanding"]
+    ROPE["RoPE 回転位置埋め込み\n2021"]
+    ALIBI["ALiBi 線形バイアス位置符号化\n2022"]
+    RMT["RMT メモリトークン\n2Mトークン対応\n2022"]
+
+    COMPRESS --> HIPPO
+    HIPPO --> S4
+    LONGFORMER --> S4
+    ROPE --> ALIBI
+    SCORE_SDE --> MODERN_HOP
+    MODERN_HOP --> S4
+    S4 --> RMT
+
+    style S4 fill:#1f4f2a,stroke:#56d364
+    style SCORE_SDE fill:#1a2a4a,stroke:#79c0ff
+</pre>
+</div>
+
+<h2>図3：次世代高速アーキテクチャ（2023）</h2>
+<div class="diagram-box">
+<pre class="mermaid">
+flowchart TD
+    S4["S4 2022"]
+    ROPE["RoPE 2021"]
+    DNC["DNC 2016"]
+    COMPRESS["Compressive Transformer 2019"]
+
+    MAMBA["⚡ Mamba 選択的SSM\n2023"]
+    RETNET["RetNet 3形式保持機構\nMicrosoft 2023"]
+    RWKV["RWKV RNN/Transformer両立\n2023"]
+    MEMGPT["MemGPT / Letta\nOS型2層記憶\nStanford 2023"]
+    STREAM["StreamingLLM\nAttention Sink\n2023"]
+    LONGMEM["LongMem / SideNet\nデカップル型記憶バンク\n2023"]
+    YARN["YaRN RoPE拡張\n2023"]
+
+    S4 --> MAMBA
+    S4 --> RETNET
+    MAMBA --> RWKV
+    DNC --> MEMGPT
+    COMPRESS --> LONGMEM
+    ROPE --> STREAM
+    ROPE --> YARN
+
+    style MAMBA fill:#1f4f2a,stroke:#56d364
+    style MEMGPT fill:#3d1f4a,stroke:#bc8cff
+</pre>
+</div>
+
+<h2>図4：現代AIエージェント（2024〜2025）と本研究</h2>
+<div class="diagram-box">
+<pre class="mermaid">
+flowchart TD
+    MAMBA["Mamba 2023"]
+    RETNET["RetNet 2023"]
+    MEMGPT["MemGPT 2023"]
+    COMPRESS2["Compressive Transformer"]
+    LONGMEM["LongMem 2023"]
+    SGLD["SGLD 2011"]
+    LINDBLAD["Lindblad方程式"]
+    ROPE["RoPE 2021"]
+    MODERN_HOP["Modern Hopfield 2021"]
+    HRR["HRR 1995"]
+    KV_COMP["KV Cache圧縮群\nH2O / KIVI / ChunkKV\n2024"]
+
+    INFINI["⚡ Infini-Attention\nGoogle 2024"]
+    GRIFFIN["Griffin / Hawk\nDeepMind 2024"]
+    TITANS["Titans 3層記憶\nGoogle 2025"]
+    AGENT["🤖 現代AIエージェント\nClaude / GPT-4o / Gemini\n2024〜"]
+    HYBRID["🔭 本研究（進行中）\nハイブリッド無損失AIアーキテクチャ\n古典層 ＋ 量子層"]
+
+    COMPRESS2 --> INFINI
+    LONGMEM --> INFINI
+    RETNET --> GRIFFIN
+    MAMBA --> TITANS
+    MEMGPT --> TITANS
+    INFINI --> AGENT
+    TITANS --> AGENT
+    GRIFFIN --> AGENT
+    KV_COMP --> AGENT
+    MEMGPT --> AGENT
+
+    INFINI -->|ブリッジ設計参照| HYBRID
+    MAMBA -->|選択ゲート設計| HYBRID
+    SGLD -->|Langevin散逸モデル| HYBRID
+    LINDBLAD -->|量子散逸モデル| HYBRID
+    HRR -->|ベクトル重ね合わせ| HYBRID
+    ROPE -->|時間符号化設計| HYBRID
+    MODERN_HOP -->|アトラクタ長期記憶| HYBRID
+    KV_COMP -->|重要度フィルタ設計| HYBRID
+
+    style INFINI fill:#1f4f2a,stroke:#56d364
+    style AGENT fill:#1a2a4a,stroke:#79c0ff
+    style HYBRID fill:#3d1f4a,stroke:#bc8cff,color:#e6edf3
+</pre>
+</div>
+
+<h2>タイムライン早見表</h2>
+<table>
+  <tr><th>年代</th><th>主要論文</th><th>技術革新</th><th>現代エージェントへの反映</th></tr>
+  <tr><td>1949</td><td>Hebbの学習則</td><td>共起強化による接続重み更新</td><td>Attention重みの学習・選択的記憶</td></tr>
+  <tr><td>1976</td><td>Lindbladマスター方程式</td><td>量子散逸の数学的記述</td><td>本研究量子層の理論基盤</td></tr>
+  <tr><td>1982</td><td>ホップフィールドネット</td><td>エネルギー最小化・連想記憶</td><td>Modern Hopfield → Attentionの等価性</td></tr>
+  <tr><td>1995</td><td>HRR</td><td>固定サイズベクトル重ね合わせ</td><td>Embedding+RAGの理論的祖先</td></tr>
+  <tr><td>1997</td><td>LSTM</td><td>ゲートによる選択的忘却</td><td>MambaのSSMゲート・Transformer-XL</td></tr>
+  <tr><td>2011</td><td>SGLD</td><td>確率的Langevin勾配降下</td><td>本研究Model 2の理論基盤</td></tr>
+  <tr><td>2014/16</td><td>NTM / DNC</td><td>外部メモリ付きニューラルネット</td><td>MemGPT / Tool Useエージェント</td></tr>
+  <tr><td class="star">2017 ★</td><td>Attention is All You Need</td><td>Self-Attention誕生</td><td>全現代LLMの基盤</td></tr>
+  <tr><td>2019</td><td>Compressive Transformer</td><td>段階的圧縮記憶</td><td>Infini-Attention・本研究ブリッジ設計</td></tr>
+  <tr><td>2021</td><td>S4 / RoPE / Modern Hopfield</td><td>SSM・回転符号化・Attention=連想記憶</td><td>Mamba・LLaMA・GeminiのRoPE採用</td></tr>
+  <tr><td>2021</td><td>Score-Based SDE</td><td>Langevin+スコア関数の統一理論</td><td>拡散モデル全般・本研究Collapse設計</td></tr>
+  <tr><td class="star">2023 ★</td><td>Mamba / MemGPT</td><td>選択的SSM・OS型2層記憶</td><td>エッジ推論・長期記憶エージェント</td></tr>
+  <tr><td class="star">2024 ★</td><td>Infini-Attention / Griffin</td><td>橋渡し型圧縮記憶・ゲート線形再帰</td><td>次世代Gemini（推定）・高速推論</td></tr>
+  <tr><td>2025</td><td>Titans</td><td>テスト時更新型3層記憶</td><td>次世代エージェント記憶管理</td></tr>
+  <tr><td class="our-research">進行中</td><td>本研究</td><td>古典層＋量子層ハイブリッド</td><td>KVキャッシュ消滅問題の根本解決へ</td></tr>
+</table>
+
+<footer>generated for Hybrid Lossless AI Architecture Research — 2026-04-12</footer>
+
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'dark', flowchart: { curve: 'basis' } });
+</script>
+</body>
+</html>

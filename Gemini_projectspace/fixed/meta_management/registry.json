@@ -1,0 +1,69 @@
+{
+  "project_name": "Lossless AI - Cognitive Memory Architecture",
+  "current_phase": "Phase 18 (Hardening Baseline)",
+  "active_constraints": {
+    "protocol": "Strict TRL Gate Check (No jump to TRL3 without TRL2 Scrutiny)",
+    "physics": "Maintain Sync-Threshold at 0.15 for semantic isolation",
+    "focus": "Refining Phase 16 baseline implementation; avoid new theory injection until hardened",
+    "memory_policy": "L2 and L3 must be updated before session closure"
+  },
+  "layers": {
+    "l1_working": {
+      "active_session": "4d18363c-7304-4afb-ac3f-a5457ce69f96",
+      "state_file": "RESEARCH_STATE.md"
+    },
+    "l2_episodic": {
+      "index": [
+        {
+          "phase": "Phase_Test_Refactor",
+          "category": "Management Test",
+          "report": "internal/test.md",
+          "summary": "Verifying BaseMemoryLayer sync.",
+          "status": "Archived",
+          "publicity_status": "private",
+          "timestamp": "2026-04-18T23:53:24.345673Z"
+        },
+        {
+          "phase": "Phase 20",
+          "category": "Theory Validation",
+          "report": "l2_episodic_dock/PHASE20_SCRUTINIZED_RESEARCH_REPORT.md",
+          "status": "Scrutinized",
+          "publicity_status": "public_release"
+        },
+        {
+          "phase": "Phase 19",
+          "category": "Theory Validation",
+          "summary": "Lévy-flight based context switching proven in sandbox",
+          "status": "Scrutinized",
+          "publicity_status": "private"
+        },
+        {
+          "phase": "Phase 15-18",
+          "category": "Functional Baseline",
+          "summary": "Initial physics-based memory integration",
+          "status": "Baseline",
+          "publicity_status": "private"
+        }
+      ],
+      "story_file": "l2_episodic_dock/PROJECT_STORY.md"
+    },
+    "l3_semantic": {
+      "knowledge_items": [
+        "sync_threshold_theory",
+        "langevin_levy_hybrid",
+        "orthogonality_theory",
+        "Refactoring_Is_Good"
+      ],
+      "spec_files": [
+        "meta_management/l3_semantic/MEMORY_ARCHITECTURE.md",
+        "meta_management/l3_semantic/PROTOTYPING_POLICY.md",
+        "meta_management/l3_semantic/FAILURE_MODES.md",
+        "meta_management/l3_semantic/AI_USE_POLICY.md",
+        "meta_management/l3_semantic/META_MEMORY_POLICY.md",
+        "meta_management/l3_semantic/RESEARCH_PROTOCOL.md",
+        "meta_management/l3_semantic/BACKUP_POLICY.md"
+      ]
+    }
+  },
+  "last_updated": "2026-05-03T03:30:00Z"
+}

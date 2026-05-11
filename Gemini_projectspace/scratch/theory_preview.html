@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Theory Preview</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 40px; background: #f4f4f4; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        pre { background: #eee; padding: 10px; overflow-x: auto; }
+        code { background: #f9f2f4; color: #c7254e; padding: 2px 4px; border-radius: 4px; }
+        h1, h2, h3 { color: #333; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>理論レポート：情報流体動力学（Information Fluid Dynamics）</h1>
+    <p><strong>作成日</strong>: 2026-05-03</p>
+    <p><strong>テーマ</strong>: 慣性項を伴う Langevin 動力学による連続的な情報の定着</p>
+
+    <h2>1. 従来の離散パルスモデル（Impulse Model）</h2>
+    <p>$$ \frac{dS}{dt} = -\mu S + \sum_{i} \alpha_i V_i \delta(t - t_i) + \sigma \xi(t) $$</p>
+
+    <h2>2. 慣性を伴う連続流モデル（Inertial Flow Model）</h2>
+    <p>連立微分方程式（Coupled Equations）</p>
+    <p>$$ \frac{dP}{dt} = -\beta P + \alpha F(t) \quad \text{(1)} $$</p>
+    <p>$$ \frac{dS}{dt} = -\mu S + P + \sigma \xi(t) \quad \text{(2)} $$</p>
+
+    <h2>3. 結論</h2>
+    <p>質量（慣性）を持つ文脈は、容易には退行せず、情報の「本質」を時間軸に沿って無損失に運ぶことが可能になる。</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "papers": [
+    {
+      "id": "kuramoto_1975",
+      "title": "Self-entrainment of a population of coupled nonlinear oscillators",
+      "authors": ["Y. Kuramoto"],
+      "year": 1975,
+      "discovered_via": "Legacy Knowledge Item",
+      "collection_mode": "B",
+      "scores": {
+        "novelty": 5,
+        "originality": 5,
+        "reproducibility": 4
+      },
+      "status": "scrutinizing",
+      "last_updated": "2026-05-03"
+    }
+  ],
+  "exploration_frontier": [
+    {
+      "next_seed": "hopfield_1982",
+      "reason": "Associative memory model - potential integration with state-space",
+      "priority": "high"
+    }
+  ]
+}
