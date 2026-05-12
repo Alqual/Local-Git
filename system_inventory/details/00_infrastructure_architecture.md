@@ -3,6 +3,34 @@
 ## Component Mission
 To provide a resilient, distributed execution environment that separates high-intensity computation (Lean compilation) from stable control (Git/UI) and secure monitoring (Watchdog).
 
+```mermaid
+graph TD
+    subgraph "Control Layer (Alma Linux)"
+        A[Alma Node]
+        D[Dashboard/UI]
+        G[Git Management]
+    end
+
+    subgraph "Compute Layer (Ubuntu)"
+        U[Ubuntu Node]
+        L[Lean 4 Compiler]
+        M[Mathlib4 Assets]
+    end
+
+    subgraph "Monitoring Layer (Mac)"
+        W[Mac Watchdog]
+        S[Sentinel Judge]
+    end
+
+    G <-->|Sync| GitHub((GitHub SSoT))
+    A ---|SSH / SCP| U
+    U ---|Telemetry| A
+    A ---|Tailscale| W
+    U ---|Tailscale| W
+    W -.->|Kill/Reset| A
+    W -.->|Kill/Reset| U
+```
+
 ## Node Roles & Interactions
 
 ### 1. Alma Linux (The Control Node)

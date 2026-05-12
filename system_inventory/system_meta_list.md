@@ -41,6 +41,11 @@ To create a "Self-Evolving Mathematician" that can ingest natural language probl
 - **Role**: The "Cockpit" of the system.
 - **Function**: Transforms raw log data into actionable insights for the user.
 
+### E. Integrated Architecture Gallery
+[Detail: 06_architecture_gallery.md](file:///home/tack_fr/デスクトップ/Local-Git/system_inventory/details/06_architecture_gallery.md)
+- **Role**: The "Visual Blueprint" of the system.
+- **Function**: Provides granular, image-based architectural views for each component and code group.
+
 ---
 
 ## 4. Operational Flow (The Pulse)
@@ -59,4 +64,4 @@ To create a "Self-Evolving Mathematician" that can ingest natural language probl
 - **Network**: Tailscale encrypted overlay network.
 
 ---
-*Last Updated: 2026-05-11 - Integrated Detailed Component Metadata*
+*Last Updated: 2026-05-12 - Replaced Diagrams with Integrated Gallery*
