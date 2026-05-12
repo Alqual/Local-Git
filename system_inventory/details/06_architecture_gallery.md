@@ -73,3 +73,83 @@ flowchart TD
     LS -->|Action| P[Process Control]
     LS -->|Log| RE[reliability_history.jsonl]
 ```
+
+---
+
+## 6. Internal Code Architectures
+Detailed logic breakdowns for each critical script in the framework.
+
+### A. `lean_translator_v4_smart.py` (The Brain)
+Orchestrates parallel translation and the reflection loop.
+
+![Lean Translator Internal](../../assets/architecture_images/lean_translator_internal.png)
+
+```mermaid
+graph TD
+    subgraph "lean_translator_v4_smart.py"
+        P[process_problem] -->|Loop up to 15x| R[Reflection Loop]
+        R -->|Build| PB[Prompt Builder]
+        PB -->|Context| CC[Context Compression]
+        R -->|Execute| RV[run_lean_verify]
+        RV -->|SSH/SCP| Remote[Ubuntu Node]
+    end
+```
+
+### B. `sentinel.py` (The Local Immune System)
+Real-time log monitoring and autonomous intervention.
+
+![Sentinel Internal](../../assets/architecture_images/sentinel_internal.png)
+
+```mermaid
+graph TD
+    subgraph "sentinel.py"
+        T[Log Tailer] -->|New Action| J[AI Risk Judge]
+        J -->|Evaluate| P[Security Policy]
+        J -->|Verdict| I[Intervention Logic]
+        I -->|DANGER| K[pkill antigravity]
+    end
+```
+
+### C. `verify_on_ubuntu.py` (The Bridge)
+Standalone verification runner for remote Lean 4 compilation.
+
+![Verify on Ubuntu Internal](../../assets/architecture_images/verify_on_ubuntu_internal.png)
+
+```mermaid
+graph LR
+    subgraph "verify_on_ubuntu.py"
+        LC[Local Command] -->|SSH| S[SSH Server]
+        S -->|Execute| LB[lake build]
+        LB -->|Return| LC
+    end
+```
+
+### D. `remote_main_sentinel.py` (The Judge)
+Distributed resource monitoring and node-level safety.
+
+![Remote Main Sentinel Internal](../../assets/architecture_images/remote_main_sentinel_internal.png)
+
+```mermaid
+graph TD
+    subgraph "remote_main_sentinel.py"
+        RP[Remote Poller] -->|SSH| N1[Node A: ps/free]
+        RP -->|SSH| N2[Node B: ps/free]
+        RP -->|Data| CA[Central Aggregator]
+        CA -->|Alert| D[Monitoring Dashboard]
+    end
+```
+
+### E. `success_harvester.sh` (The Collector)
+Automated aggregation of verified mathematical proofs.
+
+![Success Harvester Internal](../../assets/architecture_images/success_harvester_internal.png)
+
+```mermaid
+graph LR
+    subgraph "success_harvester.sh"
+        RC[Result Collector] -->|RSYNC| Remote[Compute Node]
+        Remote -->|Proofs| SF[Sorry-Filter]
+        SF -->|Clean| VPR[Valid Proof Repo]
+        SF -->|Incomplete| EDR[Discard Repo]
+    end
+```
