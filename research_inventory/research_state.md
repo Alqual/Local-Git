@@ -11,6 +11,7 @@
 ### A. Formal Mathematical Reasoning (Lean 4)
 - **Objective**: Improve the success rate of Natural Language to Lean 4 translation.
 - **Current Method**: Multi-stage translation (NL -> Informal -> Formal) with a Reflection Loop.
+- **Progress**: **Formally Verified** the Reflection Loop logic using TLA+/TLC.
 - **Gap**: High failure rate in "Gold Tier" problems due to library mismatch (Mathlib4).
 
 ### B. Proactive Hierarchical Monitoring (Sentinel)

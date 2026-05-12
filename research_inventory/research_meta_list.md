@@ -11,6 +11,7 @@ The **Research Inventory** tracks the theoretical foundations, experimental meth
 | :--- | :--- | :--- | :--- |
 | **01** | [Prototyping Policy](file:///home/tack_fr/デスクトップ/Local-Git/research_inventory/prototyping_policy.md) | Guidelines for safe and tiered experimentation. | **Active** |
 | **02** | [Research State](file:///home/tack_fr/デスクトップ/Local-Git/research_inventory/research_state.md) | Current status of theoretical exploration and active sandboxes. | **In Progress** |
+| **03** | [Formal Verification (TLA+)](file:///home/tack_fr/デスクトップ/Local-Git/research_inventory/details/01_formal_verification_tla.md) | Mathematical logic verification of reflection loops. | **Verified** |
 
 ---
 

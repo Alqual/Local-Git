@@ -19,3 +19,8 @@ __pycache__/
 *.tmp
 *.log
 *.olean
+
+# TLA+ and Formal Verification Runtime
+**/java_home/
+**/formal_verification/traces/
+**/states/
